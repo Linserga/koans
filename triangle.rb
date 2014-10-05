@@ -14,7 +14,18 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+    sides = [a,b,c].sort
+
+    raise TriangleError if sides[0] <= 0 or sides[0] + sides[1] <= sides[2]
+    
+    case sides.uniq.size
+    when 1
+        :equilateral
+    when 2
+        :isosceles
+    else
+        :scalene
+    end
 end
 
 # Error class used in part 2.  No need to change this code.
